@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
-
-namespace Jshop.Backend.Data
+﻿namespace Jshop.Backend.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    using Jshop.Domain;
+    using Microsoft.EntityFrameworkCore;
+
+    public class ApplicationDbContext : MainDbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-            : base(options)
-        {
-        }
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
     }
 }
