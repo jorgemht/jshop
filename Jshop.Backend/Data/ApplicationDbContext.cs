@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Jshop.Domain;
-namespace Jshop.Backend.Data
+﻿namespace Jshop.Backend.Data
 {
     using Jshop.Domain;
     using Microsoft.EntityFrameworkCore;

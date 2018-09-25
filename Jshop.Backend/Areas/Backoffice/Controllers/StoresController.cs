@@ -1,12 +1,15 @@
-﻿namespace Jshop.Backend.Areas.Backoffice.Controllers
-{
-    using Jshop.Backend.Data;
-    using Jshop.Domain;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.EntityFrameworkCore;
-    using System.Linq;
-    using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using Jshop.Backend.Data;
+using Jshop.Domain;
 
+namespace Jshop.Backend.Areas.Backoffice.Controllers
+{
     [Area("Backoffice")]
     public class StoresController : Controller
     {
@@ -52,7 +55,7 @@
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("StoreId,Name,Address,CodePostal,Phone,Latitude,Longitude")] Store store)
+        public async Task<IActionResult> Create([Bind("StoreId,Name,Address,CodePostal,Photo,Phone,Latitude,Longitude")] Store store)
         {
             if (ModelState.IsValid)
             {
@@ -84,7 +87,7 @@
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("StoreId,Name,Address,CodePostal,Phone,Latitude,Longitude")] Store store)
+        public async Task<IActionResult> Edit(long id, [Bind("StoreId,Name,Address,CodePostal,Photo,Phone,Latitude,Longitude")] Store store)
         {
             if (id != store.StoreId)
             {

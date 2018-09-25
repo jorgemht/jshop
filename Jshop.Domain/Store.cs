@@ -20,6 +20,9 @@
         [Display(Name = "Código postal")]
         public string CodePostal { get; set; }
 
+        [Display(Name = "Foto del local")]
+        public string Photo { get; set; }
+
         [Display(Name = "Teléfono")]
         [RegularExpression(@"^\+(?:[0-9]\x20?){6,15}[0-9]$", ErrorMessage = "El numero de teléfono debe empezar por +Código internacional hasta un máximo de 15 digitos")]
         public string Phone { get; set; }

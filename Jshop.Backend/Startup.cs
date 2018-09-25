@@ -25,9 +25,9 @@
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase("Jshop"));
+            //services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase("Jshop"));
 
-            //services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddIdentity<ApplicationUser, IdentityRole>(options => IdentityOptions(options))
                 .AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
