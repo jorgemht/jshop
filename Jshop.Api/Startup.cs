@@ -21,13 +21,11 @@
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<MainDbContext>(options => options.
-                UseInMemoryDatabase("Jshop"));
+            services.AddDbContext<MainDbContext>(options => options.UseInMemoryDatabase("Jshop"));
 
             //services.AddDbContext<MainDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddMvc()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1).AddJsonOptions(ConfigureJson);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1).AddJsonOptions(ConfigureJson);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

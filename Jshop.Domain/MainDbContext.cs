@@ -6,10 +6,7 @@
     public class MainDbContext : IdentityDbContext<ApplicationUser>
     {
 
-        public MainDbContext(DbContextOptions options) : base(options)
-        {
-
-        }
+        public MainDbContext(DbContextOptions options) : base(options) { }
 
         public DbSet<Category> Categories { get; set; }
         public DbSet<Customer> Customers { get; set; }
@@ -19,10 +16,5 @@
         public DbSet<ProductShop> ProductShops { get; set; }
         public DbSet<Store> Stores { get; set; }
 
-        /*
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-        }*/
     }
 }

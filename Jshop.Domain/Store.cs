@@ -13,7 +13,7 @@
         [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$", ErrorMessage = "El campo es requerido, no puede superar los 30 caracteres y debe empezar por mayusculas"), Required, StringLength(30)]
         public string Name { get; set; }
 
-        [Display(Name = "Nombre de la tienda")]
+        [Display(Name = "Dirección")]
         [StringLength(45, MinimumLength = 5, ErrorMessage = "Debes rellenar la dirección  y debe tener una longitud entre {1} y {2} ")]
         public string Address { get; set; }
 

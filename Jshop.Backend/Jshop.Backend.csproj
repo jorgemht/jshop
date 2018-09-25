@@ -14,4 +14,15 @@
     <ProjectReference Include="..\Jshop.Domain\Jshop.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Backoffice\Data\" />
+    <Folder Include="Areas\Backoffice\Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Areas\Backoffice\Views\_ViewImports.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+  </ItemGroup>
+
 </Project>
