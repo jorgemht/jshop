@@ -1,17 +1,23 @@
-﻿using System;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Jshop
 {
+    using Views;
+
     public partial class App : Application
     {
+        #region Properties
+        public static NavigationPage Navigator { get; set; }
+        public static MasterDetailView Master { get; set; }
+        #endregion
+
         public App()
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new MasterDetailView();
         }
 
         protected override void OnStart()
