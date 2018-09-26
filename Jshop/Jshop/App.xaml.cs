@@ -4,6 +4,10 @@ using Xamarin.Forms.Xaml;
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Jshop
 {
+    using System;
+    using Jshop.Common;
+    using Jshop.Helpers;
+    using Jshop.Services;
     using Views;
 
     public partial class App : Application
@@ -17,7 +21,27 @@ namespace Jshop
         {
             InitializeComponent();
 
+            if (Settings.Lang.Equals(string.Empty))
+            {
+                Language.UpdateLanguage();
+            }
+
+            loadUser();
+
             MainPage = new MasterDetailView();
+        }
+
+        private async void loadUser()
+        {
+            var api = new HttpService();
+
+            var user = new UserApp
+            {
+                Email = "jorge@store.com",
+                Password = "123321"
+            };
+
+            var token = await api.GetTokenUser("account/login", user);            
         }
 
         protected override void OnStart()

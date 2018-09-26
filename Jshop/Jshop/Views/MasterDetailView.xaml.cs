@@ -9,6 +9,18 @@
         public MasterDetailView()
         {
             InitializeComponent();
+
+            App.Master = this;
+            App.Navigator = Navigator;
+
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            App.Master = this;
+            App.Navigator = Navigator;
         }
     }
 }

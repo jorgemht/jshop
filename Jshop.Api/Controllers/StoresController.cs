@@ -1,16 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Jshop.Domain;
-
-namespace Jshop.Api.Controllers
+﻿namespace Jshop.Api.Controllers
 {
+    using Jshop.Domain;
+    using Microsoft.AspNetCore.Authentication.JwtBearer;
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.EntityFrameworkCore;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class StoresController : ControllerBase
     {
         private readonly MainDbContext _context;
@@ -24,6 +26,15 @@ namespace Jshop.Api.Controllers
         [HttpGet]
         public IEnumerable<Store> GetStores()
         {
+            try
+            {
+                var x = _context.Stores;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
             return _context.Stores;
         }
 

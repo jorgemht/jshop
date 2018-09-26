@@ -1,13 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Jshop.ViewModel
+﻿namespace Jshop.ViewModel
 {
+    using Jshop.Services;
+
     public class MainViewModel
     {
+        public HttpService HttpService;
+        public NavigationService NavigationService;
+
         public MainViewModel()
         {
+            NavigationService = new NavigationService();
             instance = this;
         }
 
@@ -20,6 +22,4 @@ namespace Jshop.ViewModel
         }
         #endregion
     }
-
-
 }
