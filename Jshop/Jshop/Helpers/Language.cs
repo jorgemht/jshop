@@ -1,6 +1,6 @@
 ﻿namespace Jshop.Helpers
 {
-    using Jshop.Interface;
+    using Interface;
     using Xamarin.Forms;
 
     public static class Language

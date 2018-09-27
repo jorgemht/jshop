@@ -9,8 +9,9 @@ namespace Jshop.Droid.Interface
     using Android.Preferences;
     using Java.Util;
     using Jshop.Interface;
-    using Plugin.CurrentActivity;
     using System;
+    using System.Threading;
+    using Plugin.CurrentActivity;
 
     public class LanguageService : ILanguageService
     {
@@ -18,10 +19,9 @@ namespace Jshop.Droid.Interface
         {
             if (Android.App.Application.Context.Resources.Configuration.Locale.Language == "es") ChangeLang(Android.App.Application.Context, lang);
             else if (Android.App.Application.Context.Resources.Configuration.Locale.Language == "en") ChangeLang(Android.App.Application.Context, lang);
-
             else ChangeLang(Android.App.Application.Context, lang);
 
-            //CrossCurrentActivity.Current.Activity.Recreate();
+            CrossCurrentActivity.Current.Activity.Recreate();
         }
 
         public static ContextWrapper ChangeLang(Context context, String lang_code)
@@ -32,7 +32,9 @@ namespace Jshop.Droid.Interface
             editor.PutString("lang", lang_code);
             editor.Commit();
 
-            //  Plugin.Multilingual.CrossMultilingual.Current.CurrentCultureInfo = new System.Globalization.CultureInfo(lang_code);
+            Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(lang_code);
+            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(lang_code);
+
             Locale sysLocale;
             Context result = context;
 

@@ -4,10 +4,9 @@ using Xamarin.Forms.Xaml;
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Jshop
 {
-    using System;
-    using Jshop.Common;
-    using Jshop.Helpers;
-    using Jshop.Services;
+    using Common;
+    using Helpers;
+    using Services;
     using Views;
 
     public partial class App : Application

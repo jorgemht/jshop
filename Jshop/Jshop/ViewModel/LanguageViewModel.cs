@@ -1,4 +1,6 @@
-﻿namespace Jshop.ViewModel
+﻿using Jshop.Helpers;
+
+namespace Jshop.ViewModel
 {
     using GalaSoft.MvvmLight.Command;
     using System.Windows.Input;
@@ -11,11 +13,13 @@
 
         private void ChangeEnglishLanguage()
         {
+            Language.UpdateLanguage("en");
             MainViewModel.GetInstance().NavigationService.SetMainPage();
         }
 
         private void ChangeSpanishLanguage()
         {
+            Language.UpdateLanguage("es");
             MainViewModel.GetInstance().NavigationService.SetMainPage();
         }
     }

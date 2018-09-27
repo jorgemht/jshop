@@ -2,11 +2,8 @@
 {
     using Jshop.Model;
     using Jshop.Resources;
-    using Jshop.Services;
-    using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
-    using System.Threading.Tasks;
 
     public class MenuViewModel : ViewModelBase
     {
@@ -49,7 +46,7 @@
                 {
                     Icon = string.Empty,
                     ViewName = "LanguageView",
-                    Title = Resource.Menu_About,
+                    Title = Resource.Menu_Language,
                 },
                 new Menu
                 {

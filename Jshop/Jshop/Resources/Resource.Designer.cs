@@ -79,6 +79,15 @@ namespace Jshop.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Idioma.
+        /// </summary>
+        internal static string Menu_Language {
+            get {
+                return ResourceManager.GetString("Menu_Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mapa.
         /// </summary>
         internal static string Menu_Map {
