@@ -5,6 +5,7 @@
 
     public static class Language
     {
+
         public static void UpdateLanguage()
         {
             var cultureInfo = DependencyService.Get<ICultureInfo>().CurrentCulture;

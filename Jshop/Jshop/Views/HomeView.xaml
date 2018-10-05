@@ -3,7 +3,46 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Jshop.Views.HomeView">
     <ContentPage.Content>
+        <ListView
+            BackgroundColor="White"
+            SelectedItem="{Binding StoreSelectItem, Mode=TwoWay}"
+            ItemsSource="{Binding Stores, Mode=TwoWay}"
+            RowHeight="120"
+            SeparatorVisibility="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame HasShadow="False" CornerRadius="25" Padding="2" BackgroundColor="#F69927">
+                            <Frame HasShadow="False" CornerRadius="25" BackgroundColor="White" Padding="12">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="7*" />
+                                        <ColumnDefinition Width="3*" />
+                                    </Grid.ColumnDefinitions>
 
+                                    <StackLayout Grid.Row="0" Grid.Column="0" BackgroundColor="Black" />
 
+                                    <Grid Grid.Row="0" Grid.Column="1" >
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+
+                                        <Label Text="{Binding Name}" TextColor="Black" Grid.Row="0" Grid.Column="0" />
+                                        <Label Text="{Binding Address}" TextColor="Black" Grid.Row="1" Grid.Column="0" />
+                                        <Label Text="{Binding Phone}" TextColor="Black" Grid.Row="2" Grid.Column="0" />
+
+                                    </Grid>
+                                </Grid>
+                            </Frame>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </ContentPage.Content>
 </ContentPage>

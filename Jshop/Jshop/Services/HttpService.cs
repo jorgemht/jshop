@@ -1,7 +1,7 @@
 ﻿namespace Jshop.Services
 {
-    using Jshop.Common;
-    using Jshop.Helpers;
+    using Common;
+    using Helpers;
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
@@ -13,7 +13,7 @@
     public class HttpService
     {
         private readonly string _servicePrefix = "/api/";
-        private readonly string UrlApi = "YOUR_API";
+        private readonly string UrlApi = "#";
         private string tokenType = "bearer";
 
         public async Task<Response> Get<T>(string path)
@@ -83,8 +83,6 @@
                 }
 
                 var list = JsonConvert.DeserializeObject<List<T>>(result);
-
-                //  var list = JsonConvert.DeserializeObject<T>(result);
 
                 return new Response
                 {

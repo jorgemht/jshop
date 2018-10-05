@@ -1,6 +1,6 @@
 ﻿namespace Jshop.Infrastructure
 {
-    using Jshop.ViewModel;
+    using ViewModel;
 
     public class InstanceLocator
     {

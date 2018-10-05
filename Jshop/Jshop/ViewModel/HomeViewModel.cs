@@ -1,8 +1,9 @@
-﻿namespace Jshop.ViewModel
+﻿using System.Collections.Generic;
+
+namespace Jshop.ViewModel
 {
-    using Jshop.Common;
-    using Jshop.Services;
-    using System;
+    using Common;
+    using Services;
     using System.Collections.ObjectModel;
 
     public class HomeViewModel : ViewModelBase
@@ -27,6 +28,12 @@
             var x = await api.Get<Store>("Stores/1");
 
             var result = await api.GetList<Store>("Stores");
+
+            if (result != null)
+            {
+                Stores = new ObservableCollection<Store>((List<Store>)result.Result);
+            }
+
         }
     }
 }

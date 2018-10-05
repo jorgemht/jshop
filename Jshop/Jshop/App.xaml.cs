@@ -40,7 +40,7 @@ namespace Jshop
                 Password = "123321"
             };
 
-            var token = await api.GetTokenUser("account/login", user);            
+            await api.GetTokenUser("account/login", user);            
         }
 
         protected override void OnStart()
