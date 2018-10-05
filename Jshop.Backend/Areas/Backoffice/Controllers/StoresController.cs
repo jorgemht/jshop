@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using Jshop.Backend.Data;
-using Jshop.Domain;
-
-namespace Jshop.Backend.Areas.Backoffice.Controllers
+﻿namespace Jshop.Backend.Areas.Backoffice.Controllers
 {
+    using Data;
+    using Domain;
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.EntityFrameworkCore;
+    using System.Linq;
+    using System.Threading.Tasks;
+
     [Area("Backoffice")]
+    [Authorize]
     public class StoresController : Controller
     {
         private readonly ApplicationDbContext _context;

@@ -1,9 +1,11 @@
 ﻿namespace Jshop.Backend.Areas.Backoffice.Controllers
 {
-    using Jshop.Backend.Data;
+    using Data;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
 
     [Area("Backoffice")]
+    [Authorize]
     public class DashboardController : Controller
     {
         private readonly ApplicationDbContext _context;

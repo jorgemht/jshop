@@ -1,7 +1,10 @@
 ﻿namespace Jshop.Backend
 {
-    using Jshop.Backend.Data;
-    using Jshop.Domain;
+    using System;
+    using Microsoft.AspNetCore.Identity.UI.Services;
+    using Data;
+    using Services;
+    using Domain;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
@@ -27,10 +30,26 @@
 
             //services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase("Jshop"));
 
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<ApplicationDbContext>(options => 
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddIdentity<ApplicationUser, IdentityRole>(options => IdentityOptions(options))
-                .AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
+                .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddTransient<IEmailSender, EmailSender>();
+
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                // Cookie settings
+                options.Cookie.HttpOnly = true;
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+
+                options.LoginPath = "/Identity/Account/Login";
+                options.AccessDeniedPath = "/Identity/Account/AccessDenied";
+                options.SlidingExpiration = true;
+            });
+
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
@@ -76,5 +95,13 @@
 
             return obj;
         }
+
+        /*
+         *  var poweruser = new ApplicationUser
+            {
+                UserName = Configuration.GetSection("UserSettings")["UserEmai"],
+                Email = Configuration.GetSection("UserSettings")["UserPassword"]
+            };
+         */
     }
 }
