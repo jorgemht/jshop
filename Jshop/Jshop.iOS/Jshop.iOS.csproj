@@ -167,12 +167,19 @@
       <Version>3.1.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="3.2.0.839982" />
+    <PackageReference Include="Xam.Plugins.Forms.ImageCircle">
+      <Version>3.0.0.5</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\Jshop\Jshop.csproj">
-      <Project>{2B97B662-D8B2-47FB-8647-23A022BBE38A}</Project>
+      <Project>{72115FD2-8CE1-47CA-BE2B-8C57D9907972}</Project>
       <Name>Jshop</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\location.png" />
+    <BundleResource Include="Resources\rightarrow.png" />
   </ItemGroup>
 </Project>

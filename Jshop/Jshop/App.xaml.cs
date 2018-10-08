@@ -22,7 +22,8 @@ namespace Jshop
 
             if (Settings.Lang.Equals(string.Empty))
             {
-                Language.UpdateLanguage();
+                //Language.UpdateLanguage();
+                Language.UpdateLanguage("es");
             }
 
             loadUser();
