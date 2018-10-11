@@ -29,7 +29,7 @@ namespace Jshop.ViewModel
 
             var result = await api.GetList<Store>("Stores");
 
-            if (result != null)
+            if (result.IsSuccess && result.Result != null)
             {
                 Stores = new ObservableCollection<Store>((List<Store>)result.Result);
             }
