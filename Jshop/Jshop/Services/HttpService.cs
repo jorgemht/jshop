@@ -13,7 +13,7 @@
     public class HttpService
     {
         private readonly string _servicePrefix = "/api/";
-        private readonly string UrlApi = "#";
+        private readonly string UrlApi = "https://jyin.azurewebsites.net";
         private string tokenType = "bearer";
 
         public async Task<Response> Get<T>(string path)
