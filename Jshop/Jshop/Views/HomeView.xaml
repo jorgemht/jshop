@@ -25,7 +25,8 @@
                 <Setter Property="VerticalOptions" Value="Center" />
             </Style>
             <Style x:Key="searchBarStyle" TargetType="SearchBar">
-                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="Text" Value="{Binding SearchStore}" />
+                <Setter Property="HorizontalTextAlignment" Value="Start" />
                 <Setter Property="PlaceholderColor" Value="Silver" />
                 <Setter Property="Placeholder" Value="Buscar tienda" />
                 <Setter Property="TextColor" Value="Black" />
