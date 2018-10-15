@@ -1,11 +1,11 @@
-﻿using Android.Support.V4.View;
-using System.ComponentModel;
-using Jshop.CustomControl;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.Android;
-
-namespace Jshop.Droid.Render
+﻿namespace Jshop.Droid.Renderers
 {
+    using Android.Support.V4.View;
+    using System.ComponentModel;
+    using Jshop.CustomControl;
+    using Xamarin.Forms;
+    using Xamarin.Forms.Platform.Android;
+
     public class MaterialFrameRenderer : Xamarin.Forms.Platform.Android.AppCompat.FrameRenderer
     {
         protected override void OnElementChanged(ElementChangedEventArgs<Frame> e)
