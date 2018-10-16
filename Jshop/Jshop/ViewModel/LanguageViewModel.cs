@@ -1,7 +1,6 @@
-﻿using Jshop.Helpers;
-
-namespace Jshop.ViewModel
+﻿namespace Jshop.ViewModel
 {
+    using Jshop.Helpers;
     using GalaSoft.MvvmLight.Command;
     using System.Windows.Input;
 

@@ -1,6 +1,6 @@
 ﻿namespace Jshop.Model
 {
-    using Jshop.ViewModel;
+    using Jshop.ViewModel.Base;
 
     public class Menu : ViewModelBase
     {

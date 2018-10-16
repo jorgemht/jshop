@@ -14,4 +14,4 @@
             BindingContext = new HomeViewModel();
 		}
 	}
-}
+}   

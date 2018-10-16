@@ -2,6 +2,7 @@
 {
     using Jshop.Model;
     using Jshop.Resources;
+    using Jshop.ViewModel.Base;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
 

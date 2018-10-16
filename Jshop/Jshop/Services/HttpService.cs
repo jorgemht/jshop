@@ -82,7 +82,7 @@
                     };
                 }
 
-                var list = JsonConvert.DeserializeObject<List<T>>(result);
+                var list = JsonConvert.DeserializeObject<IEnumerable<T>>(result);
 
                 return new Response
                 {
@@ -101,11 +101,18 @@
             }
         }
 
-        public async Task<Response> GetTokenUser(string path, UserApp model)
+    
+        public async Task<TokenResponse> GetToken()
         {
+            var user = new UserApp
+            {
+                Email = "jorge@store.com",
+                Password = "123321"
+            };
+
             try
             {
-                var request = JsonConvert.SerializeObject(model);
+                var request = JsonConvert.SerializeObject(user);
                 var content = new StringContent(
                     request, Encoding.UTF8, "application/json");
 
@@ -114,106 +121,28 @@
                     BaseAddress = new Uri(UrlApi)
                 };
 
-                var url = $"{_servicePrefix}{path}";
+                var url = $"{_servicePrefix}{"account/login"}";
                 var response = await client.PostAsync(url, content);
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    return new Response
-                    {
-                        IsSuccess = false,
-                        Message = response.Version.ToString()
-                    };
+                    return null;
                 }
 
                 var result = await response.Content.ReadAsStringAsync();
 
                 var newRecord = JsonConvert.DeserializeObject<TokenResponse>(result);
 
-                if(newRecord != null)
+                return new TokenResponse
                 {
-                    Settings.AccessToken = newRecord.token;
-                }
-
-                return new Response
-                {
-                    IsSuccess = true,
-                    Message = "Record added OK",
-                    Result = newRecord,
+                    expiration = newRecord.expiration,
+                    token = newRecord.token
                 };
             }
             catch (Exception ex)
-            {
-                return new Response
-                {
-                    IsSuccess = false,
-                    Message = ex.Message,
-                };
-            }
-        }
-
-        /*
-        public async Task<Response> GetTokenUser<T>(string path, T model)
-        {
-            try
-            {
-                var client = new HttpClient();
-                client.BaseAddress = new Uri(UrlApi);
-
-                var url = $"{_servicePrefix}{path}";
-                var response = await client.GetAsync(url);
-
-                if (!response.IsSuccessStatusCode)
-                {
-                    return new Response
-                    {
-                        IsSuccess = false,
-                        Message = response.StatusCode.ToString(),
-                    };
-                }
-
-                var result = await response.Content.ReadAsStringAsync();
-                var list = JsonConvert.DeserializeObject<T>(result);
-                return new Response
-                {
-                    IsSuccess = true,
-                    Message = "Ok",
-                    Result = list,
-                };
-            }
-            catch (Exception ex)
-            {
-                return new Response
-                {
-                    IsSuccess = false,
-                    Message = ex.Message,
-                };
-            }
-        }
-        */
-        public async Task<TokenResponse> GetToken()
-        {
-            const string userToken = "jorge@store.com";
-            const string userPass = "123321";
-
-            try
-            {
-                var client = new HttpClient
-                {
-                    BaseAddress = new Uri(UrlApi)
-                };
-                var response = await client.PostAsync("Token",
-                    new StringContent($"grant_type=password&username={userToken}&password={userPass}",
-                        Encoding.UTF8, "application/x-www-form-urlencoded"));
-                var resultJson = await response.Content.ReadAsStringAsync();
-                var result = JsonConvert.DeserializeObject<TokenResponse>(resultJson);
-                return result;
-            }
-            catch
             {
                 return null;
             }
         }
-
     }
 }

@@ -1,6 +1,10 @@
 ﻿namespace Jshop.ViewModel
 {
-    using Common;
+    using Jshop.Extensions;
+    using Jshop.Model;
+    using Jshop.Services.Sqlite;
+    using Jshop.ViewModel.Base;
+    using Plugin.Connectivity;
     using Services;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
@@ -8,11 +12,10 @@
 
     public class HomeViewModel : ViewModelBase
     {
-        private ObservableCollection<Store> _stores;
-        private List<Store> _storeList;
+        private ObservableCollection<StoreModel> _stores;
         private string _store;
 
-        public ObservableCollection<Store> Stores
+        public ObservableCollection<StoreModel> Stores
         {
             get => _stores;
             set => SetProperty(ref _stores, value);
@@ -30,29 +33,37 @@
 
         public HomeViewModel()
         {
+            Isqlite = new SqliteService();
+            Api = new HttpService();
+
             loadStores();
         }
 
-        private void Search()
+        private async void Search()
         {
+            var storesSqlite = await Isqlite.GetAllItemsAsync<StoreModel>();
+
             Stores = string.IsNullOrWhiteSpace(SearchStore)
-                ? new ObservableCollection<Store>(_storeList)
-                : new ObservableCollection<Store>(
-                    _storeList.Where(c => c.Name.ToLower().Contains(SearchStore.ToLower())).OrderBy(c => c.Name));
+                ? new ObservableCollection<StoreModel>(storesSqlite)
+                : new ObservableCollection<StoreModel>(
+                    storesSqlite.Where(c => c.Name.ToLower().Contains(SearchStore.ToLower())).OrderBy(c => c.Name));
         }
 
         private async void loadStores()
         {
-            var api = new HttpService();
+            var result = await Api.GetList<StoreModel>("Stores");
 
-            var result = await api.GetList<Store>("Stores");
-
-            if (!result.IsSuccess || result.Result == null) return;
-
-            _storeList = (List<Store>) result.Result;
-
-            Stores = new ObservableCollection<Store>(_storeList);
-
+            if (CrossConnectivity.Current.IsConnected || !result.IsSuccess || result.Result == null)
+            {
+                var storesSqlite = await Isqlite.GetAllItemsAsync<StoreModel>();
+                if (storesSqlite == null) return;
+                Stores = new ObservableCollection<StoreModel>(storesSqlite);
+            }
+            else
+            {
+                Stores = ((List<StoreModel>)result.Result).ToObservableRangeCollection();
+                await Isqlite.SaveAllAsync<StoreModel>((IEnumerable<StoreModel>)result.Result);
+            }
         }
     }
 }

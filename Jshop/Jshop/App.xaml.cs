@@ -4,9 +4,10 @@ using Xamarin.Forms.Xaml;
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Jshop
 {
-    using Common;
     using Helpers;
-    using Services;
+    using Jshop.Services;
+    using Jshop.Common;
+    using System.Threading.Tasks;
     using Views;
 
     public partial class App : Application
@@ -22,41 +23,36 @@ namespace Jshop
 
             if (Settings.Lang.Equals(string.Empty))
             {
-                //Language.UpdateLanguage();
-                Language.UpdateLanguage("es");
+                Language.UpdateLanguage();
             }
 
-            loadUser();
+            if (string.IsNullOrEmpty(Settings.AccessToken))
+            {
+                Task.Run(async () => { await LoadUser(); }).Wait();
+            }
 
             MainPage = new MasterDetailView();
         }
 
-        private async void loadUser()
+        private async Task LoadUser()
         {
             var api = new HttpService();
 
-            var user = new UserApp
-            {
-                Email = "jorge@store.com",
-                Password = "123321"
-            };
+            var token = await api.GetToken();
 
-            await api.GetTokenUser("account/login", user);            
+            Settings.AccessToken = token.token;
         }
 
         protected override void OnStart()
         {
-            // Handle when your app starts
         }
 
         protected override void OnSleep()
-        {
-            // Handle when your app sleeps
+        { 
         }
 
         protected override void OnResume()
         {
-            // Handle when your app resumes
         }
     }
 }
