@@ -6,9 +6,9 @@ namespace Jshop
 {
     using Helpers;
     using Jshop.Services;
-    using Jshop.Common;
     using System.Threading.Tasks;
     using Views;
+    using Plugin.Connectivity;
 
     public partial class App : Application
     {
@@ -26,7 +26,7 @@ namespace Jshop
                 Language.UpdateLanguage();
             }
 
-            if (string.IsNullOrEmpty(Settings.AccessToken))
+            if (string.IsNullOrEmpty(Settings.AccessToken) && CrossConnectivity.Current.IsConnected)
             {
                 Task.Run(async () => { await LoadUser(); }).Wait();
             }

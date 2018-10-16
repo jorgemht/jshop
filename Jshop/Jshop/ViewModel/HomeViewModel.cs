@@ -53,7 +53,7 @@
         {
             var result = await Api.GetList<StoreModel>("Stores");
 
-            if (CrossConnectivity.Current.IsConnected || !result.IsSuccess || result.Result == null)
+            if (!CrossConnectivity.Current.IsConnected || !result.IsSuccess || result.Result == null)
             {
                 var storesSqlite = await Isqlite.GetAllItemsAsync<StoreModel>();
                 if (storesSqlite == null) return;
