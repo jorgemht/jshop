@@ -44,7 +44,7 @@
                 <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
                 <Setter Property="VerticalOptions" Value="CenterAndExpand" />
                 <Setter Property="Aspect" Value="AspectFill" />
-                <Setter Property="Margin" Value="10,10,0,0" />
+                <Setter Property="Margin" Value="0,10,0,0" />
                 <Setter Property="WidthRequest" Value="{OnPlatform iOS=80, Android=80, Default=80}" />
                 <Setter Property="HeightRequest" Value="{OnPlatform iOS=80, Android=80, Default=80}" />
             </Style>

@@ -40,7 +40,7 @@
                 new Menu
                 {
                     Icon = string.Empty,
-                    ViewName = "MapView",
+                    ViewName = "MainMapView",
                     Title = Resource.Menu_Map,
                 },
                 new Menu

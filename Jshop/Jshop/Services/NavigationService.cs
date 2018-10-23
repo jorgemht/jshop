@@ -17,9 +17,10 @@
 
             switch (pageName)
             {
-                case "MapView": await App.Navigator.PushAsync(new LanguageView()); break;
+                case "HomeView": Application.Current.MainPage = new MasterDetailView(); break;
                 case "LanguageView": await App.Navigator.PushAsync(new LanguageView()); break;
                 case "AboutView": await App.Navigator.PushAsync(new LanguageView()); break;
+                case "MainMapView": await App.Navigator.PushAsync(new MainMapView()); break;
             }
         }
     }

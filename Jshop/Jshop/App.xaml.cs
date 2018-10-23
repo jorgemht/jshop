@@ -23,7 +23,7 @@ namespace Jshop
 
             if (Settings.Lang.Equals(string.Empty))
             {
-                Language.UpdateLanguage();
+                Language.UpdateLanguage("es");
             }
 
             if (string.IsNullOrEmpty(Settings.AccessToken) && CrossConnectivity.Current.IsConnected)

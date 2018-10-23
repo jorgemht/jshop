@@ -3,6 +3,8 @@
     using Foundation;
     using ImageCircle.Forms.Plugin.iOS;
     using UIKit;
+    using Xamarin;
+    using Xamarin.Forms;
 
     // The UIApplicationDelegate for the application. This class is responsible for launching the 
     // User Interface of the application, as well as listening (and optionally responding) to 
@@ -19,8 +21,9 @@
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            global::Xamarin.Forms.Forms.Init();
+            Forms.Init();
             ImageCircleRenderer.Init();
+            FormsMaps.Init();
 
             LoadApplication(new App());
 
