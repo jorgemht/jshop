@@ -22,6 +22,7 @@
 
             customMap.CustomPins = new List<CustomPin> { pin };
             customMap.Pins.Add(pin);
+
             customMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(40.416912, -3.703429), Distance.FromMiles(1.0)));
         }
     }
