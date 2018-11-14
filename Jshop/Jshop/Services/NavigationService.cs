@@ -23,5 +23,13 @@
                 case "MainMapView": await App.Navigator.PushAsync(new MainMapView()); break;
             }
         }
+
+        public async Task Navigate(string pageName, long id)
+        {
+            switch (pageName)
+            {
+                case "StoreView": await App.Navigator.PushAsync(new StoreView(id)); break;
+            }
+        }
     }
 }

@@ -6,6 +6,7 @@
     using Jshop.ViewModel.Base;
     using Plugin.Connectivity;
     using Services;
+    using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Linq;
@@ -13,6 +14,7 @@
     public class HomeViewModel : ViewModelBase
     {
         private ObservableCollection<StoreModel> _stores;
+        private StoreModel _storeSelectItem;
         private string _store;
 
         public ObservableCollection<StoreModel> Stores
@@ -31,12 +33,29 @@
             }
         }
 
+        public StoreModel StoreSelectItem
+        {
+            get => _storeSelectItem;
+            set
+            {
+                SetProperty(ref _storeSelectItem, value);
+                HandleSelectionAsync();
+            }
+        }
+
+        private async void HandleSelectionAsync()
+        {
+            if (StoreSelectItem?.StoreId == null) return;
+
+            await MainViewModel.GetInstance().NavigationService.Navigate("StoreView", StoreSelectItem.StoreId);
+        }
+
         public HomeViewModel()
         {
             Isqlite = new SqliteService();
             Api = new HttpService();
 
-            loadStores();
+            LoadStores();
         }
 
         private async void Search()
@@ -49,7 +68,7 @@
                     storesSqlite.Where(c => c.Name.ToLower().Contains(SearchStore.ToLower())).OrderBy(c => c.Name));
         }
 
-        private async void loadStores()
+        private async void LoadStores()
         {
             var result = await Api.GetList<StoreModel>("Stores");
 

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Jshop.Views.StoreView" xmlns:customControl="clr-namespace:Jshop.CustomControl">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="4*" />
+                <RowDefinition Height="3*" />
+            </Grid.RowDefinitions>
+            
+
+            <StackLayout Grid.Row="0">
+                <Image Aspect="AspectFill"
+                       HorizontalOptions="FillAndExpand" 
+                       VerticalOptions="FillAndExpand"
+                       Source="{Binding StoreModel.Photo}"/> 
+            </StackLayout>
+            
+            <Grid Grid.Row="1" 
+                  RowSpacing="30"
+                  HorizontalOptions="Center"
+                  VerticalOptions="Center">  
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Text="{Binding StoreModel.Name}"/>
+                <Label Grid.Row="1" Text="{Binding StoreModel.Address}"/>
+                <Label Grid.Row="2" Text="{Binding StoreModel.CodePostal}"/>
+                <Label Grid.Row="3" Text="{Binding StoreModel.Phone}"/>
+            </Grid>
+            
+            <customControl:CustomMap Grid.Row="2" x:Name="customMap" MapType="Street"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

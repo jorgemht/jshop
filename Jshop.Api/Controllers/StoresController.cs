@@ -22,7 +22,6 @@
             _context = context;
         }
 
-        // GET: api/Stores
         [HttpGet]
         public IEnumerable<Store> GetStores()
         {
@@ -38,7 +37,6 @@
             return _context.Stores;
         }
 
-        // GET: api/Stores/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetStore([FromRoute] long id)
         {
@@ -57,7 +55,6 @@
             return Ok(store);
         }
 
-        // PUT: api/Stores/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutStore([FromRoute] long id, [FromBody] Store store)
         {
@@ -92,7 +89,6 @@
             return NoContent();
         }
 
-        // POST: api/Stores
         [HttpPost]
         public async Task<IActionResult> PostStore([FromBody] Store store)
         {
@@ -107,7 +103,6 @@
             return CreatedAtAction("GetStore", new { id = store.StoreId }, store);
         }
 
-        // DELETE: api/Stores/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteStore([FromRoute] long id)
         {
