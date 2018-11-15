@@ -3,10 +3,10 @@
     using Jshop.Extensions;
     using Jshop.Model;
     using Jshop.Services.Sqlite;
+    using Jshop.Services.Store;
     using Jshop.ViewModel.Base;
     using Plugin.Connectivity;
     using Services;
-    using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Linq;
@@ -70,6 +70,12 @@
 
         private async void LoadStores()
         {
+            StoreFake storeFake = new StoreFake();
+
+            var storesList = await storeFake.All();
+            Stores = storesList.ToObservableRangeCollection();
+
+            /*
             var result = await Api.GetList<StoreModel>("Stores");
 
             if (!CrossConnectivity.Current.IsConnected || !result.IsSuccess || result.Result == null)
@@ -80,9 +86,10 @@
             }
             else
             {
-                Stores = ((List<StoreModel>)result.Result).ToObservableRangeCollection();
+                //Stores = ((List<StoreModel>)result.Result).ToObservableRangeCollection();
+                Stores = 
                 await Isqlite.SaveAllAsync<StoreModel>((IEnumerable<StoreModel>)result.Result);
-            }
+            }*/
         }
     }
 }

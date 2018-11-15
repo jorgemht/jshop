@@ -26,10 +26,11 @@ namespace Jshop
                 Language.UpdateLanguage("es");
             }
 
+            /*
             if (string.IsNullOrEmpty(Settings.AccessToken) && CrossConnectivity.Current.IsConnected)
             {
                 Task.Run(async () => { await LoadUser(); }).Wait();
-            }
+            }*/
 
             MainPage = new MasterDetailView();
         }
