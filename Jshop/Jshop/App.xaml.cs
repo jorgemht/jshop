@@ -9,6 +9,10 @@ namespace Jshop
     using System.Threading.Tasks;
     using Views;
     using Plugin.Connectivity;
+    using Plugin.Permissions;
+    using Plugin.Permissions.Abstractions;
+    using Plugin.Geolocator;
+    using System;
 
     public partial class App : Application
     {
@@ -46,6 +50,26 @@ namespace Jshop
 
         protected override void OnStart()
         {
+            //Task.Run(async () => { await PermissionUbication(); });
+        }
+
+        private async Task PermissionUbication()
+        {
+
+            try
+            {
+                var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Location);
+
+                if (status != PermissionStatus.Granted)
+                {
+                    var results = await CrossPermissions.Current.RequestPermissionsAsync(Permission.Location);
+                    //Best practice to always check that the key exists
+                    if (results.ContainsKey(Permission.Location)) status = results[Permission.Location];
+                }
+            }
+            catch (Exception ex)
+            {
+            }
         }
 
         protected override void OnSleep()

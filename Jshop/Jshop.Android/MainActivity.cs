@@ -3,7 +3,9 @@
     using Android.App;
     using Android.Content.PM;
     using Android.OS;
+    using Android.Runtime;
     using ImageCircle.Forms.Plugin.Droid;
+    using Plugin.Permissions;
     using Xamarin;
     using Xamarin.Forms;
 
@@ -22,6 +24,12 @@
             FormsMaps.Init(this, bundle);
 
             LoadApplication(new App());
+        }
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
+        {
+            PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
 }
