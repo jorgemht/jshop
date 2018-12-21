@@ -8,11 +8,10 @@ namespace Jshop
     using Jshop.Services;
     using System.Threading.Tasks;
     using Views;
-    using Plugin.Connectivity;
     using Plugin.Permissions;
     using Plugin.Permissions.Abstractions;
-    using Plugin.Geolocator;
     using System;
+    using Xamarin.Essentials;
 
     public partial class App : Application
     {
@@ -50,12 +49,12 @@ namespace Jshop
 
         protected override void OnStart()
         {
+
             //Task.Run(async () => { await PermissionUbication(); });
         }
 
         private async Task PermissionUbication()
         {
-
             try
             {
                 var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Location);

@@ -1,8 +1,8 @@
-﻿
-namespace Jshop.Helpers
+﻿namespace Jshop.Helpers
 {
-    using Plugin.Settings;
-    using Plugin.Settings.Abstractions;
+    using Xamarin.Essentials;
+    //using Plugin.Settings;
+    //using Plugin.Settings.Abstractions;
 
     /// <summary>
     /// This is the Settings static class that can be used in your Core solution or in any
@@ -11,8 +11,6 @@ namespace Jshop.Helpers
     /// </summary>
     public static class Settings
     {
-        private static ISettings AppSettings => CrossSettings.Current;
-
         private const string AccessTokenKey = "accessTokenKey_key";
         private static readonly string AccessTokenDefault = string.Empty;
 
@@ -21,14 +19,14 @@ namespace Jshop.Helpers
 
         public static string AccessToken
         {
-            get => AppSettings.GetValueOrDefault(AccessTokenKey, AccessTokenDefault);
-            set => AppSettings.AddOrUpdateValue(AccessTokenKey, value);
+            get => Preferences.Get(AccessTokenKey, AccessTokenDefault);
+            set => Preferences.Set(AccessTokenKey, value);
         }
 
         public static string Lang
         {
-            get => AppSettings.GetValueOrDefault(LangKey, LangKeyDefault);
-            set => AppSettings.AddOrUpdateValue(LangKey, value);
+            get => Preferences.Get(LangKey, LangKeyDefault);
+            set => Preferences.Set(LangKey, value);
         }
     }
 }

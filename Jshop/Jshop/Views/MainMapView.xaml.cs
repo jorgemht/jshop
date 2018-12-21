@@ -4,9 +4,9 @@
     using System.Collections.Generic;
     using System.Threading.Tasks;
     using Jshop.CustomControl;
-    using Plugin.Geolocator;
     using Plugin.Permissions;
     using Plugin.Permissions.Abstractions;
+    using Xamarin.Essentials;
     using Xamarin.Forms;
     using Xamarin.Forms.Maps;
 
@@ -40,7 +40,7 @@
 
                 if (status == PermissionStatus.Granted)
                 {
-                    var userPosition = await CrossGeolocator.Current.GetPositionAsync(TimeSpan.FromSeconds(10));
+                    var userPosition = await Geolocation.GetLocationAsync();
 
                     position = new Position(userPosition.Latitude, userPosition.Longitude);
                     customMap.IsShowingUser = true;

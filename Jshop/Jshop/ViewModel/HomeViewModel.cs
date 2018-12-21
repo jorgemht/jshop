@@ -5,9 +5,7 @@
     using Jshop.Services.Sqlite;
     using Jshop.Services.Store;
     using Jshop.ViewModel.Base;
-    using Plugin.Connectivity;
     using Services;
-    using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Linq;
 
