@@ -12,21 +12,24 @@
 
 This project uses some third-party assets with a license that requires attribution:
 
-- [Permissions](https://github.com/jamesmontemagno/PermissionsPlugin) : by James Montemagno
+~~-[Permissions](https://github.com/jamesmontemagno/PermissionsPlugin) : by James Montemagno~~
 
-- [Geolocator](https://www.nuget.org/packages/Xam.Plugin.Geolocator) : by James Montemagno
+~~-[Geolocator](https://www.nuget.org/packages/Xam.Plugin.Geolocator) : by James Montemagno~~
 
-- [Go To Settings](https://github.com/TrueGeek/Xamarin.Plugin.GoToSettings) : by Bradley Dean
+~~-[Go To Settings](https://github.com/TrueGeek/Xamarin.Plugin.GoToSettings) : by Bradley Dean~~
 
-- [FFImageLoading ](https://github.com/luberda-molinet/FFImageLoading) : by Daniel Luberda
+~~-[Connectivity](https://www.nuget.org/packages/Xam.Plugin.Connectivity) : by James Montemagno~~
+
+- [MVVM Helpers](https://www.nuget.org/packages/Refractored.MvvmHelpers/) : by James Montemagno
+
+- [Xamarin.Essentials ](https://www.nuget.org/packages/Xamarin.Essentials) : by James Montemagno
 
 - [MvvmLightLibsStd10](https://github.com/lbugnion/mvvmlight) : by Laurent Bugnion
 
 - [Image Circle](https://github.com/jamesmontemagno/MediaPlugin) : by James Montemagno
 
-- [Connectivity](https://www.nuget.org/packages/Xam.Plugin.Connectivity) : by James Montemagno
-
 - [MVVM Helpers](https://www.nuget.org/packages/Refractored.MvvmHelpers/) : by James Montemagno
+
 
 # Clean and Rebuild
 
