@@ -21,6 +21,8 @@ This project uses some third-party assets with a license that requires attributi
   ~~-[Connectivity](https://www.nuget.org/packages/Xam.Plugin.Connectivity) : by James Montemagno~~
  
   ~~-[Settings](https://www.nuget.org/packages/Xam.Plugins.Settings) : by James Montemagno~~
+  
+  ~~-[SharePlugin](https://www.nuget.org/packages/Plugin.Share/) : by James Montemagno~~
 
 - [MVVM Helpers](https://www.nuget.org/packages/Refractored.MvvmHelpers/) : by James Montemagno
 
