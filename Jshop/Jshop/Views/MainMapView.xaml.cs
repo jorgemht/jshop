@@ -9,7 +9,9 @@
     using Xamarin.Essentials;
     using Xamarin.Forms;
     using Xamarin.Forms.Maps;
+    using Xamarin.Forms.Xaml;
 
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainMapView : ContentPage
     {
         public MainMapView()

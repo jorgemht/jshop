@@ -1,14 +1,14 @@
 ﻿namespace Jshop.ViewModel
 {
     using Jshop.Helpers;
-    using GalaSoft.MvvmLight.Command;
     using System.Windows.Input;
+    using Xamarin.Forms;
 
     public class LanguageViewModel
     {
 
-        public ICommand ChangeEnglishLanguageCommand => new RelayCommand(ChangeEnglishLanguage);
-        public ICommand ChangeSpanishLanguageCommand => new RelayCommand(ChangeSpanishLanguage);
+        public ICommand ChangeEnglishLanguageCommand => new Command(ChangeEnglishLanguage);
+        public ICommand ChangeSpanishLanguageCommand => new Command(ChangeSpanishLanguage);
 
         private void ChangeEnglishLanguage()
         {

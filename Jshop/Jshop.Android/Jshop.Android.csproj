@@ -102,6 +102,8 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
     <AndroidResource Include="Resources\layout\MapInfo.axml" />
     <AndroidResource Include="Resources\drawable\pinMap.png" />
+    <AndroidResource Include="Resources\drawable\english.png" />
+    <AndroidResource Include="Resources\drawable\spanish.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable-hdpi\" />

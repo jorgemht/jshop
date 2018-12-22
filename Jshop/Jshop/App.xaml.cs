@@ -1,18 +1,16 @@
-﻿using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
-[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
-namespace Jshop
+﻿namespace Jshop
 {
+    using System;
+    using System.Threading.Tasks;
     using Helpers;
     using Jshop.Services;
-    using System.Threading.Tasks;
-    using Views;
     using Plugin.Permissions;
     using Plugin.Permissions.Abstractions;
-    using System;
-    using Xamarin.Essentials;
+    using Views;
+    using Xamarin.Forms;
+    using Xamarin.Forms.Xaml;
 
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class App : Application
     {
         #region Properties

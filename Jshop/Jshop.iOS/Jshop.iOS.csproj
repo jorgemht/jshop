@@ -194,6 +194,8 @@
   <ItemGroup>
     <BundleResource Include="Resources\rightarrow.png" />
     <BundleResource Include="Resources\pinMap.png" />
+    <BundleResource Include="Resources\english.png" />
+    <BundleResource Include="Resources\spanish.png" />
   </ItemGroup>
   <ItemGroup />
 </Project>
