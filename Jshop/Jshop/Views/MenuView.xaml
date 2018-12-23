@@ -3,18 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
              xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             xmlns:datatemplate="clr-namespace:Jshop.Views.DataTemplate"
              x:Class="Jshop.Views.MenuView"
-             ios:Page.UseSafeArea="true"  xmlns:datatemplate="clr-namespace:Jshop.Views.DataTemplate">
+             ios:Page.UseSafeArea="true" 
+             BackgroundColor="{StaticResource blueColor}">
     <ContentPage.Content>
         <Grid>   
         
             <Grid.RowDefinitions>
-                <RowDefinition Height="2*" />
+                <RowDefinition Height="3*" />
                 <RowDefinition Height="6*" />
-                <RowDefinition Height="2*" />
+                <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
-                    
-            <Grid Grid.Row="0" BackgroundColor="Aquamarine"> 
+
+            <Grid Grid.Row="0" BackgroundColor="{StaticResource yellowColor}"> 
                 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="8*" />
@@ -31,13 +33,14 @@
                     Aspect="AspectFill" />
                 <Label Grid.Row="1"
                        Text="Joey Tribbiani"
+                       TextColor="{StaticResource redColor}"
+                       FontSize="Large"
                        VerticalOptions="Center"
                        HorizontalOptions="Center"/>
             </Grid>
                     
             <ListView
                 Grid.Row="1"
-                BackgroundColor="White"
                 SelectedItem="{Binding MenuSelectItem, Mode=TwoWay}"
                 ItemsSource="{Binding Menu, Mode=TwoWay}"
                 RowHeight="55"
@@ -49,17 +52,18 @@
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-            </ListView>        
-               
-            <StackLayout Grid.Row="2" BackgroundColor="Aquamarine"> 
+            </ListView>
+
+            <Grid Grid.Row="2" Opacity="0.7"> 
                 <Label 
                     Text="GITHUB REPOSITORY" 
+                    TextColor="{StaticResource redColor}"
                     VerticalOptions="CenterAndExpand"
                     VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
-                <StackLayout.GestureRecognizers>
+                <Grid.GestureRecognizers>
                     <TapGestureRecognizer  Command="{Binding GithubCommand}" NumberOfTapsRequired="1" />
-                </StackLayout.GestureRecognizers>
-            </StackLayout>
+                </Grid.GestureRecognizers>
+            </Grid>
 
         </Grid>
     </ContentPage.Content>

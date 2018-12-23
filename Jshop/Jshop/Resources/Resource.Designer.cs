@@ -70,7 +70,34 @@ namespace Jshop.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Home.
+        ///   Looks up a localized string similar to Categorías.
+        /// </summary>
+        internal static string Menu_Category {
+            get {
+                return ResourceManager.GetString("Menu_Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clientes.
+        /// </summary>
+        internal static string Menu_Customer {
+            get {
+                return ResourceManager.GetString("Menu_Customer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Github.
+        /// </summary>
+        internal static string Menu_Github {
+            get {
+                return ResourceManager.GetString("Menu_Github", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inicio.
         /// </summary>
         internal static string Menu_Home {
             get {
@@ -88,11 +115,20 @@ namespace Jshop.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mapa.
+        ///   Looks up a localized string similar to Tiendas.
         /// </summary>
         internal static string Menu_Map {
             get {
                 return ResourceManager.GetString("Menu_Map", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pedidos.
+        /// </summary>
+        internal static string Menu_Order {
+            get {
+                return ResourceManager.GetString("Menu_Order", resourceCulture);
             }
         }
     }

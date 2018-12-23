@@ -2,12 +2,9 @@
 {
     using Jshop.Model;
     using Jshop.Resources;
-    using Jshop.Utils;
     using Jshop.ViewModel.Base;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
-    using System.Threading.Tasks;
-    using System.Windows.Input;
     using Xamarin.Essentials;
 
     public class MenuViewModel : ViewModelBase
@@ -51,6 +48,24 @@
                 new Menu
                 {
                     Icon = string.Empty,
+                    ViewName = "CategoryView",
+                    Title = Resource.Menu_Category,
+                },
+                new Menu
+                {
+                    Icon = string.Empty,
+                    ViewName = "CustomerView",
+                    Title = Resource.Menu_Customer,
+                },
+                new Menu
+                {
+                    Icon = string.Empty,
+                    ViewName = "OrderView",
+                    Title = Resource.Menu_Order,
+                },
+                new Menu
+                {
+                    Icon = "menuMap",
                     ViewName = "MainMapView",
                     Title = Resource.Menu_Map,
                 },
@@ -59,18 +74,6 @@
                     Icon = string.Empty,
                     ViewName = "LanguageView",
                     Title = Resource.Menu_Language,
-                },
-                new Menu
-                {
-                    Icon = string.Empty,
-                    ViewName = "AboutView",
-                    Title = Resource.Menu_About,
-                },
-                new Menu
-                {
-                    Icon = string.Empty,
-                    ViewName = "GithubView",
-                    Title = "Github",
                 }
             };
 
@@ -79,9 +82,10 @@
             Image = AppSettings.DefaultPhoto;
         }
 
+        /*
         public ICommand GithubCommand => new AsyncCommand(Github);
 
-        private async Task Github() => await Browser.OpenAsync(AppSettings.GithubUrl, BrowserLaunchMode.SystemPreferred);
+        private async Task Github() => await Browser.OpenAsync(AppSettings.GithubUrl, BrowserLaunchMode.SystemPreferred);*/
 
         private async void HandleSelectionAsync()
         {

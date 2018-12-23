@@ -6,5 +6,15 @@
     <Application.Resources>
         <!--  Locator  -->
         <infrastructure:InstanceLocator x:Key="Locator" />
+
+        <ResourceDictionary>
+            <!-- Color -->
+            <Color x:Key="redColor">#F23C50</Color>
+            <Color x:Key="yellowColor">#FFC205</Color>
+            <Color x:Key="grayColor">#E9F1DF</Color>
+            <Color x:Key="aquamarineColor">#4AD9D9</Color>
+            <Color x:Key="blueColor">#02589B</Color>
+        </ResourceDictionary>
+        
     </Application.Resources>
 </Application>

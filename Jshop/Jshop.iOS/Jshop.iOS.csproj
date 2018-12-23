@@ -197,5 +197,7 @@
     <BundleResource Include="Resources\english.png" />
     <BundleResource Include="Resources\spanish.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BundleResource Include="Resources\menuMap.png" />
+  </ItemGroup>
 </Project>

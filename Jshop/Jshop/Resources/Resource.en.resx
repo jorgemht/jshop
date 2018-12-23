@@ -120,6 +120,15 @@
   <data name="Menu_About" xml:space="preserve">
     <value>About us</value>
   </data>
+  <data name="Menu_Category" xml:space="preserve">
+    <value>Categories</value>
+  </data>
+  <data name="Menu_Customer" xml:space="preserve">
+    <value>Customers</value>
+  </data>
+  <data name="Menu_Github" xml:space="preserve">
+    <value>Github</value>
+  </data>
   <data name="Menu_Home" xml:space="preserve">
     <value>Home</value>
   </data>
@@ -127,6 +136,9 @@
     <value>Language</value>
   </data>
   <data name="Menu_Map" xml:space="preserve">
-    <value>Map</value>
+    <value>Shops</value>
+  </data>
+  <data name="Menu_Order" xml:space="preserve">
+    <value>Ordes</value>
   </data>
 </root>

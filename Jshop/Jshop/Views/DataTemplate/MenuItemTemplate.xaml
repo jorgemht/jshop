@@ -13,7 +13,7 @@
             
             <Label Grid.Column="1"
                    Text="{Binding Title, Mode=TwoWay}"
-                   TextColor="Red"
+                   TextColor="{StaticResource yellowColor}"
                    VerticalOptions="Center" />
         </Grid>        
     </ContentView.Content>
