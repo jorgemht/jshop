@@ -34,6 +34,9 @@ This project uses some third-party assets with a license that requires attributi
 
 - [MvvmLightLibsStd10](https://github.com/lbugnion/mvvmlight) : by Laurent Bugnion
 
+- Icon made by Freepik: 
+  - https://www.flaticon.es/icono-gratis/lengua-inglesa_1377975#term=language&page=1&position=94
+  - https://www.flaticon.es/icono-gratis/lengua-espanola_1377973#term=language&page=1&position=90
 
 # Clean and Rebuild
 
