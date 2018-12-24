@@ -2,6 +2,7 @@
 {
     using Jshop.ViewModel;
     using Xamarin.Forms;
+    using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
     using Xamarin.Forms.Xaml;
 
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -13,5 +14,14 @@
 
             BindingContext = new MenuViewModel();
 		}
-	}
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            var safeInsets = On<Xamarin.Forms.PlatformConfiguration.iOS>().SafeAreaInsets();
+            safeInsets.Bottom = 0;
+            this.Padding = safeInsets;
+        }
+    }
 }

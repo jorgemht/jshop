@@ -2,9 +2,12 @@
 {
     using Jshop.Model;
     using Jshop.Resources;
+    using Jshop.Utils;
     using Jshop.ViewModel.Base;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.Threading.Tasks;
+    using System.Windows.Input;
     using Xamarin.Essentials;
 
     public class MenuViewModel : ViewModelBase
@@ -82,17 +85,15 @@
             Image = AppSettings.DefaultPhoto;
         }
 
-        /*
         public ICommand GithubCommand => new AsyncCommand(Github);
 
-        private async Task Github() => await Browser.OpenAsync(AppSettings.GithubUrl, BrowserLaunchMode.SystemPreferred);*/
+        private async Task Github() => await Browser.OpenAsync(AppSettings.GithubUrl, BrowserLaunchMode.SystemPreferred);
 
         private async void HandleSelectionAsync()
         {
             if (MenuSelectItem.ViewName == null) return;
 
-            if(MenuSelectItem.ViewName == "GithubView") await Browser.OpenAsync(AppSettings.GithubUrl, BrowserLaunchMode.SystemPreferred);
-            else await MainViewModel.GetInstance().NavigationService.NavigateOnMaster(MenuSelectItem.ViewName);
+            await MainViewModel.GetInstance().NavigationService.NavigateOnMaster(MenuSelectItem.ViewName);
         }
     }
 }
