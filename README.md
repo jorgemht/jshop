@@ -24,8 +24,6 @@ This project uses some third-party assets with a license that requires attributi
   
   ~~-[SharePlugin](https://www.nuget.org/packages/Plugin.Share/) : by James Montemagno~~
 
-- [MVVM Helpers](https://www.nuget.org/packages/Refractored.MvvmHelpers/) : by James Montemagno
-
 - [Permissions](https://github.com/jamesmontemagno/PermissionsPlugin) : by James Montemagno
 
 - [Image Circle](https://github.com/jamesmontemagno/MediaPlugin) : by James Montemagno
