@@ -45,4 +45,4 @@ If you see build issues when pulling updates from the repo, try cleaning and reb
 
 # Copyright and license
 
-The MIT License (MIT) see [License file](https://github.com/jorgemht/Jshop/blob/master/LICENSE)
+The MIT License (MIT) see [License file](https://github.com/jorgemht/Jshop/blob/master/LICENSE) 
